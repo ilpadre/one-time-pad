@@ -10,11 +10,15 @@ namespace OneTimePad
         {
             otp = new OneTimePad.Lib.OTP();
 
+            Console.Write("Enter a string to encrypt: ");
             var message = Console.ReadLine();
             var key = otp.Generate(message.Length);
             var cipherText = otp.Encrypt(key, message);
+            Console.WriteLine();
             Console.WriteLine($"Cipher Text = {cipherText}");
             var decryptedMessage = otp.Decrypt(key, cipherText);
+
+            Console.WriteLine();
             Console.WriteLine($"Decrypted Message = {decryptedMessage}");
 
 
